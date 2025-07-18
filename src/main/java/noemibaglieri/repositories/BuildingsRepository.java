@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface BuildingsRepository extends JpaRepository<Building, Long> {
     List<Building> findByCity(String city);
+    boolean existsByNameAndCity(String name, String city);
 }
