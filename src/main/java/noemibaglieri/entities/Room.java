@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "bookings")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Room {
 
     @Column(name = "room_type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private RoomType roomType;
+    private RoomType type;
 
     @Column(name = "max_capacity", nullable = false)
     private int maxCapacity;
@@ -37,7 +37,7 @@ public class Room {
 
     public Room(String description, RoomType roomType, int maxCapacity, Building building) {
         this.description = description;
-        this.roomType = roomType;
+        this.type = roomType;
         this.maxCapacity = maxCapacity;
         this.building = building;
     }

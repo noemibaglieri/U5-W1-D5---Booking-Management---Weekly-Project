@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"user", "room"})
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

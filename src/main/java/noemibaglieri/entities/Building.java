@@ -28,7 +28,7 @@ public class Building {
     @Column(nullable = false)
     private String city;
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", fetch = FetchType.EAGER)
     private List<Room> rooms = new ArrayList<>();
 
     public Building(String name, String address, String city) {

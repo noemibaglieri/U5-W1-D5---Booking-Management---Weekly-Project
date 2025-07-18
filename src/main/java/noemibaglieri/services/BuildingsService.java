@@ -33,6 +33,10 @@ public class BuildingsService {
         return buildingsRepository.findById(buildingId).orElseThrow(() -> new NotFoundException(buildingId));
     }
 
+    public Building findByName(String name) {
+        return buildingsRepository.findByName(name).orElseThrow(() -> new NotFoundException(name));
+    }
+
     public void findByIdAndUpdate(long buildingId, Building updatedBuilding) {
         Building found = this.findById(buildingId);
 
