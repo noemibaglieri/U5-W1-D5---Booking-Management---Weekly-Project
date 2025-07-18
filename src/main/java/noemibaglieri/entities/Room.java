@@ -19,9 +19,10 @@ public class Room {
     @Setter(AccessLevel.NONE)
     private long id;
 
-    private String descriptiong;
+    private String description;
 
     @Column(name = "room_type", nullable = false)
+    @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
     @Column(name = "max_capacity", nullable = false)
@@ -34,8 +35,8 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<Booking> bookings = new ArrayList<>();
 
-    public Room(String descriptiong, RoomType roomType, int maxCapacity, Building building) {
-        this.descriptiong = descriptiong;
+    public Room(String description, RoomType roomType, int maxCapacity, Building building) {
+        this.description = description;
         this.roomType = roomType;
         this.maxCapacity = maxCapacity;
         this.building = building;
